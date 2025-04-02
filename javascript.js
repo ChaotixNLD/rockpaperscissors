@@ -13,23 +13,59 @@ what should the game do:
 const computerChoices = ["Rock", "Paper", "Scissors"]
 let playerChoice = ""
 let computerChoice = ""
-let playerScore = 0
+let humanScore = 0
 let computerScore = 0
 
 function getPlayerChoice() {
     let userInput = prompt("Please type: Rock, Paper, or Scissors")
     if (userInput.toLowerCase() === "rock" || userInput.toLowerCase() === "paper" || userInput.toLowerCase() === "scissors"){
     playerChoice = userInput
-    getComputerChoice()
+    console.log(playerChoice)
     }
     else {
         console.log("Invalid input")
         return getPlayerChoice()
     }
 }
-getPlayerChoice()
 
 function getComputerChoice() {
     computerChoice = computerChoices[Math.floor(Math.random() * 3)]
+    console.log(computerChoice)
 }
 
+function playRound(){
+    getPlayerChoice()
+    getComputerChoice()
+    if(playerChoice === computerChoice.toLowerCase()){
+        console.log("it's a Tie!")
+    }
+    else if(playerChoice === "rock" && computerChoice === "Scissors" || playerChoice === "paper" && computerChoice === "Rock" || playerChoice === "scissors" && computerChoice === "Paper"){
+        humanScore = humanScore + 1
+        console.log("Player Wins Round!")
+        console.log("player: " + humanScore + " - " + computerScore + ": computer")
+    }
+    else{
+        computerScore = computerScore + 1
+        console.log("Computer Wins Round!")
+        console.log("player: " + humanScore + " - " + computerScore + " :computer")
+    }
+}
+
+
+function playGame(){
+    playRound()
+    playRound()
+    playRound()
+    playRound()
+    playRound()
+    if (humanScore > computerScore){
+        console.log("Player Wins the Game!!!")
+    }
+    else if (computerScore > humanScore){
+        console.log("Computer Wins the Game!!")
+    }
+    else if (humanScore === computerScore){
+        console.log("Unbelievable!! It's A Tie!!!")
+    }
+}
+playGame()
