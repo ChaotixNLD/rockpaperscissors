@@ -53,11 +53,10 @@ function playRound(){
 
 
 function playGame(){
-    playRound()
-    playRound()
-    playRound()
-    playRound()
-    playRound()
+    for(let i = 1; i<=5; i++){
+        playRound()
+    }
+    
     if (humanScore > computerScore){
         console.log("Player Wins the Game!!!")
     }
