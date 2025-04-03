@@ -15,7 +15,6 @@ computerScoreDisplay.innerText = computerScore
 
 btns.forEach((btn) =>{
     btn.addEventListener("click", () =>{
- 
         playRound(btn)
     })
 })
